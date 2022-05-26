@@ -13,7 +13,36 @@ const rl = readline.createInterface({
 
 // the function that will be called by the unit test below
 const rockPaperScissors = (hand1, hand2) => {
-
+  let hnd1=hand1.trim().toLowerCase();
+  let hnd2=hand2.trim().toLowerCase();
+  if(hnd1==="rock"&&hnd2==="rock"){
+    return "It's a tie!"
+  }
+  else if (hnd1==="paper"&&hnd2==="paper"){
+    return "It's a tie!"
+  }
+  else if (hnd1==="scissors"&&hnd2==="scissors"){
+    return "It's a tie!"
+  }
+  else if (hnd1==="rock"&&hnd2==="scissors"){
+    return "Hand one wins!"
+  }
+  else if (hnd1==="rock"&&hnd2==="paper"){
+    return "Hand two wins!"
+  }
+  else if (hnd1==="paper"&&hnd2==="scissors"){
+    return "Hand two wins!"
+  }
+  else if (hnd1==="paper"&&hnd2==="rock"){
+    return "Hand one wins!"
+  }
+  else if (hnd1==="scissors"&&hnd2==="rock"){
+    return "Hand two wins!"
+  }
+  else if (hnd1==="scissors"&&hnd2==="paper"){
+    return "Hand one wins!"
+  }
+  
   // Write code here
   // Use the unit test to see what is expected
 
@@ -48,7 +77,7 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
-    it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
+    it('should scrub input to ensure lowercase with "trim"ed whitespace', () => {
       assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
       assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
       assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
